@@ -1,0 +1,7 @@
+### Docker Mongo Database for unit tests ###
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:3001/testdb
+# For application.properties
+# spring.data.mongodb.uri=mongodb://localhost:3001/testdb
