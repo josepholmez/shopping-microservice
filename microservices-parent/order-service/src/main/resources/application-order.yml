@@ -23,3 +23,10 @@ logging:
 
 server:
   port: 5002
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:5004/eureka
+  instance:
+    appname: order-service

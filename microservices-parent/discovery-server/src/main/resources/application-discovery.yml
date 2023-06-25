@@ -23,10 +23,13 @@ logging:
 
 server:
   port: 5004
-  # EUREKA
+
+  # EUREKA 8761
 eureka:
   instance:
     hostname: localhost
   client:
     register-with-eureka: false
     fetch-registry: false
+    serviceUrl:
+      defaultZone: http://localhost:5004/eureka
