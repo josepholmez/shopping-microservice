@@ -1,4 +1,4 @@
-package com.olmez.productservice;
+package com.olmez.orderservice;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,23 +6,26 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Profile;
+import org.springframework.test.context.TestPropertySource;
+
+import com.olmez.orderservice.utility.TestUtility;
 
 @SpringBootApplication
-@PropertySource("classpath:/application.yml")
-public class ProductServiceApplication {
+@TestPropertySource(TestUtility.TEST_SOURCE)
+public class OrderServiceTestApplication {
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProductServiceApplication.class, args);
+		SpringApplication.run(OrderServiceTestApplication.class, args);
 	}
 
 	@Bean
+	@Profile(TestUtility.TEST_PROFILE)
 	CommandLineRunner init() {
 		return args -> {
-			log.info("Loading data");
-			log.info("Product Service Application is running!");
+			log.info("Order Service TEST Application is running!");
 		};
 	}
 }

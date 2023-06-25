@@ -1,4 +1,4 @@
-package com.olmez.productservice.model;
+package com.olmez.orderservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductRequestModel {
+public class OrderRequestModel {
     private String name;
     private String description;
     private Long price;

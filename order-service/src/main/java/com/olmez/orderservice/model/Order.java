@@ -1,4 +1,4 @@
-package com.olmez.productservice.model;
+package com.olmez.orderservice.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,10 +9,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "product")
+@Table(name = "order")
 @Data
 @NoArgsConstructor
-public class Product {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -20,7 +20,7 @@ public class Product {
     private String description;
     private Long price;
 
-    public Product(String name, String description, Long price) {
+    public Order(String name, String description, Long price) {
         this.name = name;
         this.description = description;
         this.price = price;

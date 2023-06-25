@@ -1,4 +1,4 @@
-package com.olmez.productservice.controller;
+package com.olmez.orderservice.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,20 +16,20 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.olmez.productservice.model.ProductRequestModel;
-import com.olmez.productservice.repository.ProductRepository;
-import com.olmez.productservice.service.ProductService;
+import com.olmez.orderservice.model.OrderRequestModel;
+import com.olmez.orderservice.repository.OrderRepository;
+import com.olmez.orderservice.service.OrderService;
 
 @ExtendWith(MockitoExtension.class)
-class ProductControllerTest {
+class OrderControllerTest {
 
     @InjectMocks
-    private ProductController productController;
+    private OrderController orderController;
 
     @Mock
-    private ProductRepository productRepository;
+    private OrderRepository productRepository;
     @Mock
-    private ProductService productService;
+    private OrderService productService;
     @Mock
     private MockMvc mockMvc;
 
@@ -37,23 +37,23 @@ class ProductControllerTest {
 
     @BeforeEach
     void setUp() {
-        mockMvc = MockMvcBuilders.standaloneSetup(productController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(orderController).build();
     }
 
     @Test
-    void createProduct() throws Exception {
-        ProductRequestModel model = getProductRequestModel();
+    void createOrder() throws Exception {
+        OrderRequestModel model = getOrderRequestModel();
         String modelAsString = objectMapper.writeValueAsString(model);
 
-        ResultActions actions = mockMvc.perform(MockMvcRequestBuilders.post("/api/product")
+        ResultActions actions = mockMvc.perform(MockMvcRequestBuilders.post("/api/order")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(modelAsString));
 
         assertThat(actions.andReturn().getResponse().getStatus()).isEqualTo(HttpStatus.CREATED.value());
     }
 
-    private ProductRequestModel getProductRequestModel() {
-        return ProductRequestModel.builder()
+    private OrderRequestModel getOrderRequestModel() {
+        return OrderRequestModel.builder()
                 .name("Samsung 20S")
                 .description("Galaxy 20S Red color")
                 .price(1000L)

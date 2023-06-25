@@ -1,4 +1,4 @@
-package com.olmez.productservice;
+package com.olmez.orderservice;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,19 +10,19 @@ import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
 @PropertySource("classpath:/application.yml")
-public class ProductServiceApplication {
+public class OrderServiceApplication {
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProductServiceApplication.class, args);
+		SpringApplication.run(OrderServiceApplication.class, args);
 	}
 
 	@Bean
 	CommandLineRunner init() {
 		return args -> {
 			log.info("Loading data");
-			log.info("Product Service Application is running!");
+			log.info("Order Service Application is running!");
 		};
 	}
 }

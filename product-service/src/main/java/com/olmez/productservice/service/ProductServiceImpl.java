@@ -21,11 +21,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void createProduct(ProductRequestModel requestModel) {
-        Product product = Product.builder()
-                .name(requestModel.getName())
-                .description(requestModel.getDescription())
-                .price(requestModel.getPrice())
-                .build();
+        Product product = new Product(requestModel.getName(), requestModel.getDescription(), requestModel.getPrice());
         product = productRepository.save(product);
         log.info("Product {} is saved:", product.getId());
     }
