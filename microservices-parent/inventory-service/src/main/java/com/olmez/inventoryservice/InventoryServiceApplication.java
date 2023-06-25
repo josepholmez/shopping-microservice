@@ -7,7 +7,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.olmez.inventoryservice.model.Inventory;
 import com.olmez.inventoryservice.repository.InventoryRepository;
 import com.olmez.inventoryservice.utility.SourceUtils;
 
@@ -26,18 +25,6 @@ public class InventoryServiceApplication {
 		return args -> {
 			log.info("Loading data");
 			log.info("Inventory Service Application is running!");
-
-			// for test
-			Inventory inv = new Inventory();
-			inv.setSkuCode("sku1234");
-			inv.setQuantity(6);
-			inventoryRepository.save(inv);
-
-			Inventory inv2 = new Inventory();
-			inv2.setSkuCode("sku567");
-			inv2.setQuantity(0);
-			inventoryRepository.save(inv2);
-
 		};
 	}
 

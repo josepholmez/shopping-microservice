@@ -20,7 +20,7 @@ public class ProductServiceApplication {
 	}
 
 	@Bean
-	CommandLineRunner init() {
+	CommandLineRunner loadData() {
 		return args -> {
 
 			log.info("Loading data");

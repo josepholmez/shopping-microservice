@@ -20,7 +20,7 @@ public class OrderServiceApplication {
 	}
 
 	@Bean
-	CommandLineRunner init() {
+	CommandLineRunner loadData() {
 		return args -> {
 			log.info("Loading data");
 			log.info("Order Service Application is running!");
