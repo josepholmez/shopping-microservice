@@ -22,11 +22,11 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
 
     @Override
-    public void placeOrder(OrderRequestDto requestModel) {
+    public void placeOrder(OrderRequestDto orderRequestDto) {
         Order order = new Order();
         order.setOrderNumber(UUID.randomUUID().toString());
 
-        List<OrderLineItem> orderLineItems = requestModel.getOrderLineItemDtoList()
+        List<OrderLineItem> orderLineItems = orderRequestDto.getOrderLineItemDtoList()
                 .stream()
                 .map(this::mapToDto)
                 .toList();

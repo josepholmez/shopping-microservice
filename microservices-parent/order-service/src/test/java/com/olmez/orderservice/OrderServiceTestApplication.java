@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.TestPropertySource;
 
-import com.olmez.orderservice.utility.TestUtility;
+import com.olmez.orderservice.utility.SourceUtils;
 
 @SpringBootApplication
-@TestPropertySource(TestUtility.TEST_SOURCE)
+@TestPropertySource(SourceUtils.TEST_SOURCE)
 public class OrderServiceTestApplication {
 
 	private Logger log = LoggerFactory.getLogger(getClass());
@@ -22,7 +22,7 @@ public class OrderServiceTestApplication {
 	}
 
 	@Bean
-	@Profile(TestUtility.TEST_PROFILE)
+	@Profile(SourceUtils.TEST_PROFILE)
 	CommandLineRunner init() {
 		return args -> {
 			log.info("Order Service TEST Application is running!");

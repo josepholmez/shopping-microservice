@@ -14,7 +14,7 @@ spring:
 
 logging:
   file:
-    name: C:/logs/shopping.log
+    name: C:/logs/order-service.log
     encoding: UTF-8
   level:
     org:
@@ -22,4 +22,4 @@ logging:
         sql: info
 
 server:
-  port: 5001
+  port: 5002

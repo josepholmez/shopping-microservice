@@ -7,13 +7,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.olmez.productservice.utility.SourceUtils;
+
 @SpringBootApplication
 public class ProductServiceApplication {
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 
 	public static void main(String[] args) {
-		System.setProperty("spring.config.location", "classpath:/application.yml");
+		SourceUtils.setSpringConfigLocation();
 		SpringApplication.run(ProductServiceApplication.class, args);
 	}
 
@@ -25,4 +27,5 @@ public class ProductServiceApplication {
 			log.info("Product Service Application is running!");
 		};
 	}
+
 }

@@ -11,11 +11,11 @@ import org.springframework.test.context.TestPropertySource;
 import com.olmez.orderservice.OrderServiceTestApplication;
 import com.olmez.orderservice.model.Order;
 import com.olmez.orderservice.repository.OrderRepository;
-import com.olmez.orderservice.utility.TestUtility;
+import com.olmez.orderservice.utility.SourceUtils;
 
 @SpringBootTest(classes = OrderServiceTestApplication.class)
-@ActiveProfiles(TestUtility.TEST_PROFILE)
-@TestPropertySource(TestUtility.TEST_SOURCE)
+@ActiveProfiles(SourceUtils.TEST_PROFILE)
+@TestPropertySource(SourceUtils.TEST_SOURCE)
 class OrderRepositoryTest {
 
 	@Autowired
@@ -25,7 +25,8 @@ class OrderRepositoryTest {
 	void testFindAll() {
 		// arrange
 		repository.deleteAll();
-		Order order = new Order(1L, "Samsung 20S");
+		Order order = new Order();
+		order.setOrderNumber("Samsung 20S");
 		order = repository.save(order);
 
 		// act
