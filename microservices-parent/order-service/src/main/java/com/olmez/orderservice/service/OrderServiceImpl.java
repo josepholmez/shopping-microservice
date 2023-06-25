@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
 
     @Override
     public void placeOrder(OrderRequestDto orderRequestDto) {
@@ -44,8 +44,9 @@ public class OrderServiceImpl implements OrderService {
                 .toList();
         // Call inventory service, and place order if product is in stock
         // this OrderController daki get methodununu temsil eder-verilen parametre ile
-        // cagirir.
-        InventoryResponseDto[] inventoryResponseDtoList = webClient.get()
+        // cagirir. We can use "inventory-service" instead of "localhost:5003" since we
+        // define this in application.yml
+        InventoryResponseDto[] inventoryResponseDtoList = webClientBuilder.build().get()
                 .uri("http://localhost:5003/api/inventory",
                         urlBuilder -> urlBuilder.queryParam("skuCodes", skuCodes).build())
                 .retrieve()
