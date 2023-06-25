@@ -6,15 +6,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-@PropertySource("classpath:/application.yml")
 public class OrderServiceApplication {
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 
 	public static void main(String[] args) {
+		System.setProperty("spring.config.location", "classpath:/application.yml");
 		SpringApplication.run(OrderServiceApplication.class, args);
 	}
 
