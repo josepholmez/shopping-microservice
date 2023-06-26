@@ -16,13 +16,25 @@ spring:
       routes[0]:
         - id: product-service
           uri: lb://product-service
-          predicates[0]:
+          predicates:
             - Path=/api/product
       routes[1]:
         - id: order-service
           uri: lb://order-service
-          predicates[0]:
+          predicates:
             - Path=/api/order
+      routes[2]:
+        - id: discovery-server
+          uri: http://localhost:5004
+          predicates:
+            - Path=/eureka/web
+          filters:
+            - SetPath=/
+      routes[3]:
+        - id: discovery-server-static
+          uri: http://localhost:5004
+          predicates:
+            - Path=/eureka/**
 
 logging:
   level:
