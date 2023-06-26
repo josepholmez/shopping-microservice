@@ -22,10 +22,6 @@ repositories {
 }
 
 dependencies {
-
-	// add other project dependency	
-	//implementation project(':inventoryservice')
-
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -34,7 +30,6 @@ dependencies {
 	
 	implementation 'mysql:mysql-connector-java:8.0.31'
 	implementation 'org.checkerframework:checker:3.32.0'
-
 	
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

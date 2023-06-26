@@ -1,4 +1,4 @@
-package com.olmez.productservice;
+package com.olmez.inventoryservice;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,25 +8,25 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 
-import com.olmez.productservice.utility.SourceUtils;
+import com.olmez.inventoryservice.repository.InventoryRepository;
+import com.olmez.inventoryservice.utility.SourceUtils;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class ProductServiceApplication {
+public class InventoryServiceApplication {
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 
 	public static void main(String[] args) {
 		SourceUtils.setSpringConfigLocation();
-		SpringApplication.run(ProductServiceApplication.class, args);
+		SpringApplication.run(InventoryServiceApplication.class, args);
 	}
 
 	@Bean
-	CommandLineRunner loadData() {
+	CommandLineRunner loadData(InventoryRepository inventoryRepository) {
 		return args -> {
-
 			log.info("Loading data");
-			log.info("Product Service Application is running!");
+			log.info("Inventory Service Application is running!");
 		};
 	}
 

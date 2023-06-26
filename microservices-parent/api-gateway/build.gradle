@@ -22,19 +22,13 @@ repositories {
 }
 
 dependencies {
-
-	// add other project dependency	
-	//implementation project(':inventoryservice')
-
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework:spring-webflux:6.0.10'
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.2'
-	
 	implementation 'mysql:mysql-connector-java:8.0.31'
 	implementation 'org.checkerframework:checker:3.32.0'
-
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.2'
+	implementation 'org.springframework.cloud:spring-cloud-gateway:4.0.6'
 	
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

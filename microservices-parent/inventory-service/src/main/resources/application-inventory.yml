@@ -14,7 +14,7 @@ spring:
 
 logging:
   file:
-    name: C:/logs/order-service.log
+    name: C:/logs/inventory-service.log
     encoding: UTF-8
   level:
     org:
@@ -22,11 +22,11 @@ logging:
         sql: info
 
 server:
-  port: 5002
+  port: 5003
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:5004/eureka
   instance:
-    appname: order-service
+    appname: inventory-service
